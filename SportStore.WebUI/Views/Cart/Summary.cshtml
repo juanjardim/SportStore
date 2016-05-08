@@ -2,6 +2,13 @@
 
 <div class="navbar-right">
     <a class="btn btn-default navbar-btn" href="@Url.Action("Index", "Cart", new {returnUrl = Request.Url.PathAndQuery})">
-        <i class="glyphicon glyphicon-shopping-cart"></i> @Model.Lines.Sum(x => x.Quantity) item(s), @Model.ComputeTotalValue().ToString("c")
+        <i class="glyphicon glyphicon-shopping-cart"></i>
+        <span class="hidden-xs">
+            @Model.Lines.Sum(x => x.Quantity) item(s), @Model.ComputeTotalValue().ToString("c")
+        </span>
     </a>
+</div>
+
+<div class="navbar-right visible-xs navbar-summary-xs">
+    <b>@Model.Lines.Sum(x => x.Quantity) item(s), @Model.ComputeTotalValue().ToString("c")</b>
 </div>

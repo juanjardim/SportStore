@@ -14,14 +14,11 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Sports Store</a>
-
+                <a class="navbar-brand" href="#">
+                    <span class="hidden-xs">Sports Store</span>
+                    <div class="visible-xs">Sports</div>
+                    <div class="visible-xs">Store</div>
+                </a>
             </div>
             @Html.Action("Summary", "Cart")
         </div>
@@ -29,10 +26,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-3" id="categories">
+        <div class="col-xs-3 hidden-xs" id="categories">
             @Html.Action("Menu", "Nav")
         </div>
-        <div class="col-xs-8">
+        <div class="col-md-8 col-xs-12">
             @RenderBody()
         </div>
     </div>

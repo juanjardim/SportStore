@@ -2,3 +2,22 @@
     padding-top: 70px;
     padding-bottom: 20px;
 }
+
+.navbar-right {
+    float: right !important;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+
+@media (max-width: 768px) {
+    .navbar-header {
+        display: inline-block;
+    }
+    .navbar-brand {
+        padding-top: 5px !important;
+    }
+    .navbar-summary-xs {
+        padding-top: 15px;
+    }
+}
