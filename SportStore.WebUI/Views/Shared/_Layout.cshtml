@@ -20,14 +20,16 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">Sports Store</a>
+
             </div>
+            @Html.Action("Summary", "Cart")
         </div>
     </nav>
 
 <div class="container">
     <div class="row">
         <div class="col-xs-3" id="categories">
-            Categories
+            @Html.Action("Menu", "Nav")
         </div>
         <div class="col-xs-8">
             @RenderBody()

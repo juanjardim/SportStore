@@ -1,0 +1,7 @@
+﻿@model SportStore.Domain.Entities.Cart
+
+<div class="navbar-right">
+    <a class="btn btn-default navbar-btn" href="@Url.Action("Index", "Cart", new {returnUrl = Request.Url.PathAndQuery})">
+        <i class="glyphicon glyphicon-shopping-cart"></i> @Model.Lines.Sum(x => x.Quantity) item(s), @Model.ComputeTotalValue().ToString("c")
+    </a>
+</div>

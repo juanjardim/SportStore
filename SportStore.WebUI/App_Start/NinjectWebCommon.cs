@@ -1,8 +1,6 @@
-using System.Collections.Generic;
-using Moq;
+using System.Configuration;
 using SportStore.Domain.Abstract;
 using SportStore.Domain.Concrete;
-using SportStore.Domain.Entities;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(SportStore.WebUI.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(SportStore.WebUI.App_Start.NinjectWebCommon), "Stop")]
@@ -70,6 +68,13 @@ namespace SportStore.WebUI.App_Start
 
             kernel.Bind<IProductRepository>().ToConstant(mock.Object);*/
             kernel.Bind<IProductRepository>().To<EFProductRepository>();
+            EmailSettings emailSettings = new EmailSettings
+            {
+                WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "false")
+            };
+
+            kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("settings", emailSettings);
+
         }        
     }
 }
