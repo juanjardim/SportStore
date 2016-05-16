@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.spacelab.min.css" rel="stylesheet"/>
+    <link href="~/Content/bootstrap.spacelab.min.css" rel="stylesheet" />
     <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
@@ -23,27 +23,30 @@
             @Html.Action("Summary", "Cart")
         </div>
     </nav>
+    <div class="visible-xs">
+        @Html.Action("Menu", "Nav", new { horizontalLayout = true })
+    </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-xs-3 hidden-xs" id="categories">
-            @Html.Action("Menu", "Nav")
-        </div>
-        <div class="col-md-8 col-xs-12">
-            @RenderBody()
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3 hidden-xs" id="categories">
+                @Html.Action("Menu", "Nav")
+            </div>
+            <div class="col-md-8 col-xs-12">
+                @RenderBody()
+            </div>
         </div>
     </div>
-</div>
 
 
 
-<footer class="navbar-fixed-bottom">
-    <div class="container text-center">
-        <p>&copy; @DateTime.Now.Year - Sports Store an ASP.NET Application</p>
-    </div>
-</footer>
+    <footer class="navbar-fixed-bottom">
+        <div class="container text-center">
+            <p>&copy; @DateTime.Now.Year - Sports Store an ASP.NET Application</p>
+        </div>
+    </footer>
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
